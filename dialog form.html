@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dialog with Form</title>
+  </head>
+  <body>
+    <button id="openDialogBtn">打开Dialog</button>
+
+    <dialog id="myDialog">
+      <form id="myForm" method="dialog" onsubmit="console.log('submit!')">
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name" /><br /><br />
+        <label for="email">邮箱:</label>
+        <input type="email" id="email" name="email" /><br /><br />
+        <input type="submit" />
+        <button type="button" onclick="closeDialog()">关闭</button>
+      </form>
+    </dialog>
+
+    <script>
+      var dialog = document.getElementById("myDialog");
+      var openDialogBtn = document.getElementById("openDialogBtn");
+
+      openDialogBtn.addEventListener("click", function () {
+        dialog.showModal();
+      });
+
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          closeDialog();
+        });
+
+      function closeDialog() {
+        dialog.close();
+      }
+    </script>
+  </body>
+</html>

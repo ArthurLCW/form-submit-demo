@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Value Example</title>
+    <script>
+      function onSubmitFetch(event) {
+        event.preventDefault();
+
+        // 发送请求到服务器
+        fetch("/api/comment/JavaScript", {
+          method: "GET",
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log("Success:", data);
+          })
+          .catch((error) => {
+            console.error(
+              "There was a problem with your fetch operation:",
+              error
+            );
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <form
+      id="myForm"
+      onsubmit="onSubmitFetch(event)"
+      action="https://changwenli.com:8801/api/comment/JavaScript"
+      method="get"
+    >
+      <input name="q" id="q" type="text" />
+      <input type="submit" value="input Submit" />
+    </form>
+  </body>
+</html>

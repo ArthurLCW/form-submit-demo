@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>文件上传表单</title>
+  </head>
+  <body>
+    <h2>上传文件</h2>
+
+    <form
+      action="http://localhost:3000/upload"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      选择文件上传1:
+      <input type="file" name="file" id="fileToUpload1" />
+      <br /><br />
+      选择文件上传2:
+      <input type="file" name="file" id="fileToUpload2" />
+      <br /><br />
+      输入文字:
+      <input type="text" name="text1" id="text1" />
+      <br /><br />
+      <input type="submit" value="上传文件" name="submit" />
+    </form>
+  </body>
+</html>
